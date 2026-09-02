@@ -1,19 +1,53 @@
-```markdown
-# Advanced Driver Assistance Systems (ADAS) Projects
+**Markdown**
 
-Welcome to the ADAS project repository. This repository showcases practical implementations of computer vision algorithms, vehicle protocol decoding, and test automation tools relevant to modern automotive and ADAS engineering.
+**# Computer Vision Lane Detection Pipeline**
 
----
 
-## 📁 Repository Structure
 
-### [01. Computer Vision Lane Detection](./01_Lane_Detection)
-* **Description:** Real-time lane detection and tracking pipeline using OpenCV, HLS thresholding, Canny edge detection, and Hough Line Transform. Includes temporal tracking to smooth lane overlay boundaries.
-* **Key Skills:** Python, OpenCV, Image Processing, Line Fitting, ADAS Vision Logic.
+**## Overview**
 
----
+**This project implements a robust lane detection and tracking algorithm using OpenCV and classical Computer Vision techniques. It processes video input frame-by-frame, highlights lane lines using custom color thresholds, isolates edges using Canny edge detection, applies a Region of Interest (ROI) mask, and uses Hough Transform with temporal line tracking to maintain smooth lane boundaries.**
 
-## 🛠️ Tech Stack & Tools
-* **Languages:** Python, C/CAPL
-* **Computer Vision:** OpenCV, NumPy
-* **Protocols & Tools:** CAN, J1939, Vector CANoe, INCA
+
+
+**## Key Features**
+
+**\* \*\*Color Space Conversion:\*\* Converts BGR to HLS color space to isolate yellow and white lane markings under varying lighting conditions.**
+
+**\* \*\*Canny Edge \& Gaussian Blur:\*\* Applies a 17x17 Gaussian blur to remove noise followed by Canny edge extraction.**
+
+**\* \*\*Region of Interest (ROI) Masking:\*\* Dynamic polygon masking to filter out off-road scenery and focus strictly on the vehicle's driving lane.**
+
+**\* \*\*Hough Transform \& Line Averaging:\*\* Detects line segments, separates them into left/right lanes by slope, and calculates averaged lane boundaries.**
+
+**\* \*\*Temporal Line Tracking (`LaneTracker`):\*\* Keeps track of previous valid lane coordinates to prevent flickering when lines are briefly obscured or missing.**
+
+
+
+**## Tech Stack**
+
+**\* Python 3.x**
+
+**\* OpenCV (`cv2`)**
+
+**\* NumPy**
+
+
+
+**## File Structure**
+
+**\* `lane\_detection.py` - Core lane detection script.**
+
+**\* `Lane\_video.mp4` - Input test video.**
+
+**\* `Lane\_detected\_optimized.mp4` - Output video with drawn lane overlays.**
+
+
+
+**## How to Run**
+
+**```bash**
+
+**python lane\_detection.py**
+
+
