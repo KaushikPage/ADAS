@@ -138,4 +138,4 @@ def lane_detection_process(video_path, output_path):
 
 
 # Usage
-lane_detection_process("Lane_video.mp4", "Lane_detected_optimized.mp4")
+lane_detection_process("Lane_video.mp4", "Lane_detected.mp4")
